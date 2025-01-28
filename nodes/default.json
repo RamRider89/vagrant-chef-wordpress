@@ -1,0 +1,6 @@
+{
+  "apache_server": {
+    "port": 80,
+    "docroot": "/var/www/html"
+  }
+}
