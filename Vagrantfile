@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
   # via 127.0.0.1 to disable public access
   # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
   # Configuración de red: redirecciona el puerto 80 (guest) al 8081 (host)
-  config.vm.network "forwarded_port", guest: 80, host: 8081, auto_correct: true
+  config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -95,11 +95,11 @@ Vagrant.configure("2") do |config|
     chef.nodes_path = "nodes"
 
     # Especifica el cookbook que se usará
-    chef.add_recipe "apache_server::default"
+    chef.add_recipe "wordpress::default"
 
     # Ruta al archivo de atributos (opcional)
     chef.json = {
-      "apache_server" => {
+      "wordpress" => {
         "port": 80,
         "docroot": "/var/www/html"
       }
